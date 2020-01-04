@@ -9,15 +9,17 @@ html, body
   min-height: 100%
   position: relative
   width: 100%
+  margin-right: 20px 20px
 
 html
   +rem-html-reset(1)
   -webkit-tap-highlight-color: transparent
 
 body
-  +body-font-family
+  +monospaced-font-family
   +font-size(regular)
   color: $base-body-color
+  background-color: $base-body-background
   line-height: 1.5
   min-height: 100%
   text-rendering: optimizeLegibility
@@ -126,3 +128,4 @@ img
 
 legend
   color: $gray-color
+

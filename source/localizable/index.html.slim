@@ -3,9 +3,24 @@
 
 section
   .wrap
-    h1.space--both-1= lorem.sentence
+    h1.space--both-1
+    
     .formatted-content
-      = lorem.paragraphs(5)
+      br
+      br
+      br
+      br
+      | This blog will document the early steps of my coding journey. It is intended for other budding programmers and developers, or just anyone out there who likes to play with code. I will write about various problems I encounter along the way and the solutions I eventually find for them. I hope this material will serve both as a memory log for me and a resource for others.
+      br
+      br
+
+      - page_articles.each_with_index do |article, i|
+          h1
+            = link_to article.title, article, class: 'article-title__list__link'
+          p
+            = article.date.strftime('%b %e')
+            =article.summary(150)
+
       / Test image with lazyload options
       /= image_lazy(dato.homepage.image, {w: 1920}, [[960, 480], [1080, 720], [1536, 1024], [1920, 1536]])
 
@@ -15,8 +30,10 @@ section.space--both-2
       .grid__item.desk-8-12
         .carousel
           .carousel__item
-            = image_tag("", data: {lazy: "//via.placeholder.com/1920x750/FF0000"}, alt: "placeholder", title: "title")
+            = image_tag 'images/screen.jpg'
+
+            /= image_tag("", data: {lazy: "//via.placeholder.com/1920x750/FF0000"}, alt: "placeholder", title: "title")
           .carousel__item
-            = image_tag("", data: {lazy: "//via.placeholder.com/1920x750/0000FF"}, alt: "placeholder", title: "title")
+            /= image_tag("", data: {lazy: "//via.placeholder.com/1920x750/0000FF"}, alt: "placeholder", title: "title")
           .carousel__item
-            = image_tag("", data: {lazy: "//via.placeholder.com/1920x750/008000"}, alt: "placeholder", title: "title")
+            /= image_tag("", data: {lazy: "//via.placeholder.com/1920x750/008000"}, alt: "placeholder", title: "title")

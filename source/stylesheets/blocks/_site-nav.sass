@@ -1,7 +1,10 @@
 .site-nav
-  background: $base-body-color
+  background: $beige
   +vertical-padding(2)
   position: relative
+
+.slogan
+  color: $dark-blue
 
 .site-nav__inner
   display: flex
@@ -31,14 +34,14 @@
   +horizontal-padding(1)
 
 .site-nav__topbar__locale-switcher__link
-  color: #FFFFFF
+  color: $dark-blue
 
   &.is-current
 
 .site-nav__menu-toggler
   display: block
   +font-size(alpha)
-  color: #FFFFFF
+  color: $dark-blue
 
 .site-nav__menu
   display: none
@@ -48,9 +51,19 @@
   +horizontal-padding(1)
 
 .site-nav__menu__link
-  color: #FFFFFF
+  font-size: 1.5rem
+  color: $dark-blue
 
-  &.is-active
+  //&.is-active
+    //color: $dark-blue
+  &:visited 
+    color: $dark-blue
+  
+  &:hover
+    color: $red
+  
+  &:active
+    color: $dark-blue
 
 +at-breakpoint(desk)
   .site-nav__menu-toggler

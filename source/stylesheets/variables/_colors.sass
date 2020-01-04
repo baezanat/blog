@@ -8,6 +8,17 @@ $white-color:    #ffffff !default
 $gray-color:     #6c757d !default
 $black-color:    #000000 !default
 
+// added by Natalia
+$dark-blue: rgba(23, 80, 122, 1)
+$light-blue: rgba(23, 151, 181, 1)
+$yellow: rgba(221, 202, 22, 1)
+$beige: rgba(225, 233, 199, 1)
+$red: rgba(200, 13, 35, 1)
+$light-green: #cbffc0
+$light-purple: #dbace5
+$acqua: #00FFFF
+$light-blue2: #87CEFA
+
 // Base map color
 $base-colors: () !default
 $base-colors: map-merge(("white": $white-color, "gray": $gray-color, "black": $black-color), $base-colors)
@@ -18,8 +29,8 @@ $bemo-colors: () !default
 // derived
 $all-colors:    map-merge($base-colors, $bemo-colors)
 
-$base-body-color: $black-color !default
-$base-body-background: $white-color !default
+$base-body-color: $beige
+$base-body-background: $dark-blue
 
 // The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
 $yiq-contrasted-threshold: 150 !default

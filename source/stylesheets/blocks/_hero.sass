@@ -11,11 +11,19 @@
 //        .hero__actions
 
 .hero
-  background-color: $hero-body-color
-  background-position: center center
-  background-repeat: no-repeat
-  background-size: cover
-  position: relative
+  display: flex
+  width: 100%
+  justify-content: center
+  //background-color: $hero-body-color
+  //background-position: center center
+  //background-repeat: no-repeat
+  //background-size: cover
+  //position: relative
+
+.hero__image
+  width: auto
+  height: auto
+
 
 @if $enable-hero-colored
   @each $color, $value in $all-colors

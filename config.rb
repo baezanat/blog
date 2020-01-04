@@ -19,6 +19,10 @@ activate :inline_svg
 
 activate :dato, token: ENV.fetch('DATO_API_TOKEN'), live_reload: true
 
+# set timezone
+require 'tzinfo'
+Time.zone = 'Europe/Rome'
+
 webpack_command =
   if build?
     "yarn run build"
@@ -31,6 +35,28 @@ activate :external_pipeline,
   command: webpack_command,
   source: ".tmp/dist",
   latency: 1
+
+activate :blog do |blog|
+  # This will add a prefix to all links, template references and source paths
+  # blog.prefix = "blog"
+  # blog.permalink = "{year}/{month}/{day}/{title}.html"
+  # Matcher for blog source files
+  # blog.sources = "{year}-{month}-{day}-{title}.html"
+  # blog.taglink = "tags/{tag}.html"
+  # blog.layout = "layout"
+  # blog.summary_separator = /(READMORE)/
+  # blog.summary_length = 250
+  # blog.year_link = "{year}.html"
+  # blog.month_link = "{year}/{month}.html"
+  # blog.day_link = "{year}/{month}/{day}.html"
+  # blog.default_extension = ".md"
+  # blog.tag_template = "tag.html"
+  # blog.calendar_template = "calendar.html"
+  # Enable pagination
+  # blog.paginate = true
+  # blog.per_page = 10
+  # blog.page_link = "page/{num}"
+end
 
 configure :build do
   activate :minify_html do |html|

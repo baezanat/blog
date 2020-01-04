@@ -11,6 +11,9 @@ link href="//www.google-analytics.com" rel="dns-prefetch"
 link href="//cdn.iubenda.com" rel="dns-prefetch"
 - if ENV['BUILD_ENV'] == "staging"
   meta name="robots" content="noindex, nofollow"
+.hero
+  .hero__image
+    = image_tag 'images/yellow_banner.png'
 
 = yield_content :head
 = dato_favicon_meta_tags

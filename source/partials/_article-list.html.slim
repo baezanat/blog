@@ -1,0 +1,13 @@
+.wrap
+  .formatted-content
+    h1
+      | Recent Articles
+    ol
+    - blog.articles[0...10].each do |article|
+      li
+      p.article-title__list
+        = link_to article.title, article, class: "article-title__list__link"
+      p
+        = article.date.strftime('%b %e')
+      br
+
