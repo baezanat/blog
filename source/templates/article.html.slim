@@ -20,7 +20,7 @@ tags: article.category
 
   .container
     .banner
-    = article.main_image
+      = image_tag article.main_image.file.to_url, class: 'banner'
   br
   h3.article-heading
     = article.heading_1
