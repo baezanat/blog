@@ -9,39 +9,35 @@ section
       br
       br
       br
-      p.blog-intro
-        = dato.homepage.introduction
+      = dato.homepage.introduction
       br
       br
 
-      - dato.articles.each do |article|
-        h3
-          a.article-title__list__link href="/articles/#{article.slug}.html"
-            = article.title
-
-        p.article-date
-          = article.publication_date.strftime('%b %e')
+      / - articles.each do |article|
+        h1
+        /  = link_to article.title, class: 'article-title__list__link'
         p
-          = truncate_words(Sanitize.fragment(article.main_text), length: 50)
-          a href='/articles/
-            = article.slug
-            .html'
-        br
-        br
-        br
+        /  = article.content
+        /  = article.publication_date
 
+      / - page_articles.each_with_index do |article, i|
+          h1
+            / = link_to article.title, article, class: 'article-title__list__link'
+          p
+            / = article.date.strftime('%b %e')
+            / =article.summary(150)
 
       / Test image with lazyload options
           / = dato.homepage.image
           / = image_lazy(dato.homepage.image, {w: 1920}, [[960, 480], [1080, 720], [1536, 1024], [1920, 1536]])
 
-/ section.space--both-2
- / .wrap
-   / .grid--center
-     / .grid__item.desk-8-12
-       / .carousel
-         / .carousel__item
-          /  = image_tag 'images/screen.jpg'
+section.space--both-2
+  .wrap
+    .grid--center
+      .grid__item.desk-8-12
+        .carousel
+          .carousel__item
+            = image_tag 'images/screen.jpg'
           / = dato.homepage.image
               / = image_lazy(dato.homepage.image, {w: 1920}, [[960, 480], [1080, 720], [1536, 1024], [1920, 1536]])
               /= image_tag("", data: {lazy: "//via.placeholder.com/1920x750/FF0000"}, alt: "placeholder", title: "title")

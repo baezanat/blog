@@ -82,22 +82,28 @@ helpers do
       # dato.contact_page
     ]
   end
+
 end
 
-# dato.tap do |dato|
-#   dato.articles.each do |article|
-#     proxy(
-#       '/articles/#{article.slug}.html',
-#       '/templates/article.html',
-#       locals: { article: article }
-#     )
-#   end
+=begin
+dato.tap do |dato|
+  dato.articles.each do |article|
+    proxy(
+      '/articles/#{article.slug}.html',
+      '/templates/article.html',
+      locals: { article: article }
+    )
+  end
+end
+=end
 
-#   paginate(
-#     dato.articles.sort_by(&:published_at).reverse,
-#     '/articles',
-#     '/templates/articles.html'
-#   )
+=begin
+paginate(
+  dato.articles.sort_by(&:publication_date).reverse,
+  '/article',
+  '/templates/article.html'
+  )
+=end
 
 #   MULTILANG SAMPLES
 #
@@ -128,6 +134,29 @@ end
 #   end
 # end
 
+all_articles = dato.articles.sort_by(&:publication_date)
+proxy "/index.html", "/templates/index.html", locals: { articles: all_articles }
+
+dato.articles.each do |article|
+  proxy "/articles/#{article.slug}.html",
+    "/templates/article.html",
+    locals: { article: article }
+end
+
+=begin
+dato.tap do |dato|
+  dato.articles.each do |article|
+    proxy(
+      "/articles/#{article.slug}.html",
+      "/templates/article.html",
+      locals: { article: article },
+      ignore: true
+    )
+  end
+end
+=end
+
+=begin
 LOCALES.each do |locale|
   I18n.with_locale(locale) do
     prefix = locale == LOCALES[0] ? "" : "/#{locale}"
@@ -142,6 +171,7 @@ LOCALES.each do |locale|
       locale: locale
   end
 end
+=end
 
 proxy "site.webmanifest",
   "templates/site.webmanifest",
@@ -154,3 +184,6 @@ proxy "browserconfig.xml",
 proxy "/_redirects",
   "/templates/redirects.txt",
   :layout => false
+
+# all_articles = dato.articles.sort_by(&:publication_date)
+# proxy "/index.html", "/templates/index.html", locals: { articles: all_articles }

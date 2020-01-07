@@ -1,0 +1,66 @@
+---
+
+title: article.title
+date: article.publication_date
+tags: article.category
+
+---
+
+.wrap.formatted-content
+  br
+  br
+  h2.article-title
+    = article.title
+  br
+  h3.article-date
+    = article.publication_date.strftime('%b %e')
+  br
+  p
+    = article.main_text
+
+  .container
+    .banner
+    = article.main_image
+  br
+  h3.article-heading
+    = article.heading_1
+    br
+    br
+  p    
+    = article.section_1
+    br
+    br
+  h3.article-heading
+    = article.heading_2
+    br
+    br
+  p    
+    = article.section_2
+    br
+    br
+  h3.article-heading
+    = article.heading_3
+    br
+    br
+  p    
+    = article.section_3
+    br
+    br
+  h3.article-heading
+    = article.heading_4
+    br
+    br
+  p    
+    = article.section_4
+    br
+    br
+  h3.article-heading
+    = article.heading_5
+    br
+    br
+  p    
+    = article.section_5
+    br
+    hr
+    br
+    = partial "partials/article-list"
