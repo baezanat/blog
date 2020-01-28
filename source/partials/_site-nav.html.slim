@@ -1,15 +1,24 @@
-nav.site-nav
-  .wrap
-    .site-nav__inner
-      h1.site-nav__menu.slogan
-        = dato.homepage.tagline
+.site-nav
+  h1.flex_item.slogan
+    = dato.homepage.tagline
 
-      ul.site-nav__menu
-        li.site-nav__menu__item
-          = active_link_to t('nav.home'),
-            locale_path("/"),
-            class: "site-nav__menu__link"  
+  .flex_item.site-nav__home
+    = active_link_to t('nav.home'),
+      locale_path("/"),
+      class: "site-nav__menu__link"  
 
+//nav.site-nav
+//  .wrap
+//    .site-nav__inner.flex.flex--between
+//      h1.site-nav__menu.slogan.flex__item.flex-6-12
+//        = dato.homepage.tagline
+//
+//      ul.site-nav__menu.flex__item.flex-6-12
+//        li.site-nav__menu__item
+//          = active_link_to t('nav.home'),
+//            locale_path("/"),
+//            class: "site-nav__menu__link"  
+//========================================
     / .site-nav__inner
       / = link_to "#",
         / class: "site-nav__menu-toggler js-nav-toggler--left" do

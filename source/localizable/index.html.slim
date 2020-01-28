@@ -20,7 +20,7 @@ section
             = article.title
 
         p.article-date
-          = article.publication_date.strftime('%b %e')
+          = article.publication_date.strftime('%b %e, %Y')
         p
           = truncate_words(Sanitize.fragment(article.main_text), length: 50)
           a href='/articles/
