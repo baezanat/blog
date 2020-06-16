@@ -10,4 +10,4 @@ gem 'middleman-svg'
 gem 'pry'
 gem 'slim'
 gem "middleman-blog", "~> 4.0"
-gem 'sanitize', '~> 4.0', '>= 4.0.1'
+gem 'sanitize', '~> 5.2'
